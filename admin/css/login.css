@@ -1,0 +1,64 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.logo{
+    margin:auto;
+    display: flex;
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+       
+}
+.body{
+    background-image: url('../img/fondo-2.jpg'); !important
+    background-repeat: no-repeat;
+    /*background-attachment: fixed;*/
+    background-size: 100% 100%;
+    
+}
+.body2{
+    background-image: url('../img/fondo-4.jpg'); !important
+    background-repeat: no-repeat;
+    /*background-attachment: fixed;*/
+    background-size: 100% 100%;
+    
+}
+
+@media screen and (max-width:600px){
+    body{
+        background-color: #ffff; !important
+    }
+}
+/*
+@media screen and (max-width: 600px) {
+    .table {
+        border: 0px
+    }
+    .table thead{
+        display: none;
+    }
+    .table tr{
+        margin-bottom: 8px;
+        border-bottom: 4px solid #ffff;
+        display: block;
+    }
+    .table th, .table td{
+        font-size: 12px;
+    }
+    .table td{
+        display: block;
+
+    }
+}
+*/
+@media screen and (max-width: 600px){
+    .nav{
+        display: block;
+        margin-bottom: 8px;
+        border-bottom: 4px solid #ffff;
+        font-size: 12px;
+        width: auto;
+    }
+}
