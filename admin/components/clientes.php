@@ -3,7 +3,7 @@ include_once "conexion.php";
 $conexion = new mysqli("localhost", "root", "", "tiendaonline");
 if (isset($_REQUEST['idBorrar'])) {
     $id = mysqli_real_escape_string($conexion, $_REQUEST['idBorrar'] ?? ''); //para sanitizar la variable
-    $query = "DELETE from usuarios where id='" . $id . "';";
+    $query = "DELETE from clientes where id='" . $id . "';";
     $res = mysqli_query($conexion, $query);
     if ($res) {
 ?>
@@ -43,15 +43,16 @@ if (isset($_REQUEST['idBorrar'])) {
                     <div class="card">
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <h6>Crear Usuario
-                                <a href="dashboard.php?modulo=crearUsuario"><i class="fas fa-plus" aria-hidden="true"></i></a>
+                            <h6>Crear Cliente
+                                <a href="dashboard.php?modulo=crearCliente"><i class="fas fa-plus" aria-hidden="true"></i></a>
                             </h6>
-                            <table id="example2" class="table table-bordered table-hover table-dark">
+                            <table id="example2" class="table table-sm table-bordered table-hover table-dark">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
                                         <th>Nombre</th>
                                         <th>Email</th>
+                                        <th>Direccion</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
@@ -59,7 +60,7 @@ if (isset($_REQUEST['idBorrar'])) {
                                     <?php
 
                                     //$query="SELECT id.email.nombre from usuarios where email='".$email."' and pass='".$password."'";
-                                    $query = "SELECT*FROM usuarios";
+                                    $query = "SELECT*FROM clientes";
                                     $res = mysqli_query($conexion, $query);
                                     while ($row = mysqli_fetch_assoc($res)) {
 
@@ -69,8 +70,9 @@ if (isset($_REQUEST['idBorrar'])) {
                                             <td><?php echo $row['id'] ?></td>
                                             <td><?php echo $row['nombre'] ?></td>
                                             <td><?php echo $row['email'] ?></td>
+                                            <td><?php echo $row['direccion'] ?></td>
                                             <td>
-                                                <a href="dashboard.php?modulo=editarUsuarios&id=<?php echo $row['id'] ?>" style="margin-right:10px"><i class="fas fa-edit"></i></a>
+                                                <a href="dashboard.php?modulo=editarCliente&id=<?php echo $row['id'] ?>" style="margin-right:10px"><i class="fas fa-edit"></i></a>
                                                 <a href="dashboard.php?modulo=usuarios&idBorrar=<?php echo $row['id'] ?>" class="text-danger borrar"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>

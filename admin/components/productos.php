@@ -1,9 +1,4 @@
-<?php
-include_once "conexion.php";
-$conexion = new mysqli("localhost", "root", "", "tiendaonline");
 
-?>
-<!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -31,18 +26,18 @@ $conexion = new mysqli("localhost", "root", "", "tiendaonline");
                                     <a href="dashboard.php?modulo=crearProducto"><i class="fas fa-plus"
                                             aria-hidden="true"></i></a>
                             </div>-->
-                            <table id="tablaProductos" class="table table-bordered table-hover">
+                            <table class="table table-bordered table-hover table-dark text-center" id="tablaProductos" >
                                 <thead>
-                                    <tr>
-                                        <th>Nombre</th>
-                                        <th>Precio</th>
-                                        <th>Categoria</th>
-                                        <th>Stock</th>
-                                        <th>Imagenes</th>
-                                        <th>Descripcion</th>
-                                    </tr>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                    <th>Stock</th>
+                                    <th>Categoria</th>
+                                    <th></th>
+                                    <th>Descripcion</th>
                                 </thead>
-                            </table>
+                                <tbody>
+                                </tbody>
+                            </table>    
                         </div>
                     </div>
                 </div>

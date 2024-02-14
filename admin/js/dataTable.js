@@ -1,56 +1,40 @@
 //muestra los productos en base de datos, se edita carga y borra desde el dashboard
-$(document).ready(function(){
-    $("#tablaProductos").dynamicTable({
-        columns: [{
-            text:"Nombre",
-            key:" nombre"
+let tabla = document.querySelector("#tablaProductos");
+let dataTable = new DataTable(tabla,{
+    
+});    
+/*$(document).ready( function () {
+    //$('#tablaProductos').DataTable();
+    $.ajax({
+        type: "post",
+        url: "ajax/leerCarrito.php",
+        dataType: "json",
+        success: function (response) {
+        llenaTablaProductos(response);
         },
-        {
-            text:"Precio",
-            key:" precio"
-        },
-        {
-            text:"Categoria",
-            key:" categoria"
-        },
-        {
-            text:"Stock",
-            key:" stock"
-        },
-        {
-            text:"Imagenes",
-            key:"imagenes"
-        },
-        {
-            text:"Descripcion",
-            key:"descripcion"
-        },
-        ],
-        data:[{
+      });
+      function llenaTablaProductos(response) {
+      response.forEach((element) => {
+        $("#tablaProductos tbody").append(
+          `
+                  
+                  
+                  <tr>
+                    <td>${element["id"]}</td>
+                    <td scope="row">${element["nombre"]}</td>
+                    <td>${element["precio"]}</td>
+                    <td>${element["categoria"]}</td>
+                    <td>${element["stock"]}</td>
+                    <td><img src="${element["web_path"]}" class="img-size-50"/></td>
+                    <td>${element["descripcion"]}</td>
+                    
+                    
+                </tr>
+                          
+                  `
+        );
+      });
+    }
+});*/
 
-        }
-        
-        ],
-        //creo los botones de la tabla
-        buttons: {
-            addButton: '<input type="button" value="Crear" class="btn btn-success" />',
-            cancelButton: '<input type="button" value="Cancelar" class="btn btn-primary" />',
-            deleteButton: '<input type="button" value="Eliminar" class="btn btn-danger" />',
-            editButton: '<input type="button" value="Editar" class="btn btn-primary" />',
-            saveButton: '<input type="button" value="Guardar" class="btn btn-success" />'
-        },
-        showActionColumn: true,
-        //cargo las condiciones
-        getControl: function(columnKey){
-            if(columnKey == "stock"){
-                return '<input type="number" class="form-control" />';
-            }
-            if(columnKey == "categoria"){
-                return '<select class="form-control"><option value="P">Alimento Perro</option><option value="G">Alimento Gato</option> <option value="A">Accesorios</option></select>';
-            }
-            return '<input type="text" class="form-control"/>';
-        },
-        
-    })
-    var data = $("#tablaProductos").getTableData();
-});
+

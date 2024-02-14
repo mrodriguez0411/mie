@@ -1,4 +1,4 @@
-    <table class="table table-hover table-dark" id="tablaCarrito">
+    <table class="table table-hover table-sm table-dark" id="tablaCarrito">
       <thead>
         <tr>
           <th scope="col">Imagen</th>

@@ -5,7 +5,7 @@
  */
 
 // DataTables PHP library
-include("../lib/DataTables.php");
+include("../lib/DataTables.php") ;
 
 // Alias Editor classes so they are easy to use
 use
@@ -62,6 +62,6 @@ Editor::inst($db, 'productos')
 					)
 			)
 	)
-	//->debug(true)
+	->debug(true)
 	->process($_POST)
 	->json();

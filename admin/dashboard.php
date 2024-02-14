@@ -49,6 +49,7 @@ $modulo = $_REQUEST['modulo'] ?? '';
     <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.5.1/css/dataTables.dateTime.min.css">
     <link rel="stylesheet" href="css/editor.dataTables.min.css">
     <link rel="stylesheet" href="css/login.css">
+    <link href="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -186,6 +187,12 @@ $modulo = $_REQUEST['modulo'] ?? '';
                                     </a>
                                 </li>
                                 <li class="nav-item">
+                                    <a href="dashboard.php?modulo=clientes" class="nav-link <?php echo ($modulo == "clientes" || $modulo == "crearCliente" || $modulo == "editarClientes") ? "active" : ""; ?>">
+                                        <i class="far fa-user nav-icon"></i>
+                                        <p>Clientes</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="dashboard.php?modulo=ventas" class="nav-link <?php echo ($modulo == "ventas") ? "active" : ""; ?>">
                                         <i class="fa fa-shopping-cart nav-icon" aria-hidden="true"></i>
                                         <p>Ventas</p>
@@ -233,6 +240,9 @@ $modulo = $_REQUEST['modulo'] ?? '';
         }
         if ($modulo == "productos") {
             include_once "./components/productos.php";
+        }
+        if ($modulo == "clientes") {
+            include_once "./components/clientes.php";
         }
 
         ?>
@@ -306,14 +316,12 @@ $modulo = $_REQUEST['modulo'] ?? '';
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/select/1.7.0/js/dataTables.select.min.js"></script>
-    <scrip src="https://cdn.datatables.net/datetime/1.5.1/js/dataTables.dateTime.min.js"></scrip>
+    <script src="https://cdn.datatables.net/datetime/1.5.1/js/dataTables.dateTime.min.js"></script>
     <script src="js/dataTables.editor.min.js"></script>
-    <!-- DataTables  Dynamic tabla -->
-    <script src="js/TablaProductosServ.js"></script>
-    <script src="js/dataTable.js"></script>
-    <!--Vanilla Datatables-->
-    <link href="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
-    <script src="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.js" type="text/javascript"></script>
+    <!-- DataTables  Dynamic tabla 
+    <script src="js/dataTable.js"></script>-->
+    <!--Vanilla Datatables
+    <script src="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.js" type="text/javascript"></script>-->
 
 
     <!-- Page specific script -->
@@ -330,7 +338,7 @@ $modulo = $_REQUEST['modulo'] ?? '';
             });
             editor = new DataTable.Editor({
 
-                ajax: 'admin/controllers/productos.php',
+                ajax: "controllers/productos.php",
                 fields: [{
                         label: 'Nombre:',
                         name: 'nombre'
@@ -360,24 +368,16 @@ $modulo = $_REQUEST['modulo'] ?? '';
                         name: 'descripcion'
                     }
                 ],
-                table: '#',
+                table: '#tablaProductos',
 
             });
 
-            new DataTable("#", {
-                ajax: 'admin/controllers/productos.php',
-                buttons: [{
-                        extend: 'create',
-                        editor
-                    },
-                    {
-                        extend: 'edit',
-                        editor
-                    },
-                    {
-                        extend: 'remove',
-                        editor
-                    }
+            new DataTable("#tablaProductos", {
+                ajax: "controllers/productos.php",
+                buttons: [
+                    { extend: 'create', editor },
+                    { extend: 'edit', editor },
+                    { extend: 'remove', editor }
                 ],
                 columns: [{
                         data: 'nombre'

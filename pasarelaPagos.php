@@ -1,5 +1,5 @@
 <h1>Compra en línea</h1>
-<table class="table table-hover table-dark" id="tablaPasarela">
+<table class="table table-hover table-dark table-sm" id="tablaPasarela">
     <thead>
         <tr>
             <th scope="col">Imagen</th>
