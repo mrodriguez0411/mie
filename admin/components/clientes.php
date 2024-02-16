@@ -46,7 +46,7 @@ if (isset($_REQUEST['idBorrar'])) {
                             <h6>Crear Cliente
                                 <a href="dashboard.php?modulo=crearCliente"><i class="fas fa-plus" aria-hidden="true"></i></a>
                             </h6>
-                            <table id="example2" class="table table-sm table-bordered table-hover table-dark">
+                            <table id="example2" class="table table-bordered table-hover table-dark tabla" style="width: auto;">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
